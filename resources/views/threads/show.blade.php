@@ -24,7 +24,7 @@
             </div>
         </div>
     </div>
-    @if ($thread->replices->count())
+    @if ($thread->replies->count())
     <div class="col-12">
         <hr>
         <h5>Respostas</h5>
@@ -42,6 +42,7 @@
         <hr>
     </div>
     @endif
+    @auth
     <div class="col-12">
         <hr>
         <form action="{{route('replies.store')}}" method="post">
@@ -61,5 +62,10 @@
             </div>
         </form>
     </div>
+    @else
+    <div class="col-12 text-center">
+        <h5>É preciso estar logado para resonder ao tópico</h5>
+    </div>
+    @endauth
 </div>
 @endsection
